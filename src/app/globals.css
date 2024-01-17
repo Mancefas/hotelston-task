@@ -2,6 +2,7 @@
   --button-main: #434752;
   --button-secondary: #63C55E;
   --background-main: #FFFFFF;
+  --shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px -10px;
 }
 
 * {

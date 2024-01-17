@@ -1,0 +1,7 @@
+.container {
+    box-shadow:  var(--shadow);
+    padding: 30px;
+    max-width: 80%;
+    width: fit-content;
+    margin: auto;
+}
