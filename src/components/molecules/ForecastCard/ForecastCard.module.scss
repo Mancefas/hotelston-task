@@ -9,6 +9,7 @@
         padding: 0.5rem;
         width: fit-content;
         margin: auto;
+
         &_blue {
             background-color: var(--weather-blue);
         }
@@ -21,5 +22,8 @@
         &_red {
             background-color: var(--weather-red);
         }
+    }
+    &__text {
+        font-size: 0.75rem;
     }
 }

@@ -15,6 +15,7 @@ const ForecastCard = ({ weatherItem }: ForecastCardProps) => {
         airTemperature,
         feelsLikeTemperature,
         windSpeed,
+        windGust,
         conditionCode,
     } = weatherItem;
     const hours = dayjs(forecastTimeUtc).format('HH:mm');
@@ -33,10 +34,12 @@ const ForecastCard = ({ weatherItem }: ForecastCardProps) => {
             <p>{hours}</p>
             <WeatherIcon condition={conditionCode} />
             <p>{airTemperature}°C</p>
-            <p>feels like</p>
+            <p className={styles.forecastCard__text}>feels like</p>
             <p>{feelsLikeTemperature}°C</p>
             <IconWind />
             <p>{windSpeed}km/h</p>
+            <p className={styles.forecastCard__text}>Gusts</p>
+            <p>{windGust}km/h</p>
         </div>
     );
 };
