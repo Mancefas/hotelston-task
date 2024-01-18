@@ -22,12 +22,12 @@ const ForecastCard = ({ weatherItem }: ForecastCardProps) => {
 
     const cardColorClass =
         airTemperature < 0
-            ? styles.forecastCard__container_blue
+            ? styles['forecastCard__container--blue']
             : airTemperature >= 0 && airTemperature < 10
-            ? styles.forecastCard__container_green
+            ? styles['forecastCard__container--green']
             : airTemperature >= 10 && airTemperature < 30
-            ? styles.forecastCard__container_gold
-            : styles.forecastCard__container_red;
+            ? styles['forecastCard__container--gold']
+            : styles['forecastCard__container--red'];
 
     return (
         <div className={`${styles.forecastCard__container} ${cardColorClass}`}>

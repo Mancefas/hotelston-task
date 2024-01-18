@@ -10,16 +10,16 @@
         width: fit-content;
         margin: auto;
 
-        &_blue {
+        &--blue {
             background-color: var(--weather-blue);
         }
-        &_green {
+        &--green {
             background-color: var(-- --weather-green);
         }
-        &_gold {
+        &--gold {
             background-color: var(--weather-gold);
         }
-        &_red {
+        &--red {
             background-color: var(--weather-red);
         }
     }

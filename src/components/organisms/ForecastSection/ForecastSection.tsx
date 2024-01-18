@@ -1,7 +1,9 @@
 import dayjs from 'dayjs';
-import styles from './ForecastSection.module.scss';
-import { WeatherForecast } from '@/types/types';
+import { IconWind } from '@tabler/icons-react';
 import ForecastCard from '@/components/molecules/ForecastCard/ForecastCard';
+import { WeatherForecast } from '@/types/types';
+
+import styles from './ForecastSection.module.scss';
 
 type ForecastSectionProps = {
     data: WeatherForecast;

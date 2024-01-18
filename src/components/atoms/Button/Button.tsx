@@ -1,4 +1,4 @@
-import styles from './Button.module.css';
+import styles from './Button.module.scss';
 
 type ButtonProps = {
     text: string;
@@ -11,7 +11,7 @@ const Button = ({ text, secondary, clickHandler }: ButtonProps) => {
         <button
             onClick={clickHandler}
             className={`${styles.button} ${
-                secondary ? styles.buttonSecondary : styles.buttonMain
+                secondary ? styles['button--secondary'] : ''
             }`}
         >
             {text}
