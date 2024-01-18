@@ -83,7 +83,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
                 <Input
                     type="text"
                     placeholder="Different city"
-                    value={place}
+                    value={place.toLowerCase()}
                     changeValue={inputHandler}
                     error={inputError}
                     keydownHandler={enterKeyPressHandler}
