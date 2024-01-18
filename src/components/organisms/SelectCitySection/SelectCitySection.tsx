@@ -28,6 +28,18 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
         }
     };
 
+    const handleHintClick = async (item: string) => {
+        setPlace('');
+        setHintArray([]);
+        try {
+            const data = await getLongForecast(item);
+            setData(data);
+        } catch (error: any) {
+            setError(error.message);
+            setData(null);
+        }
+    };
+
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         const placesArray = possiblePlaces.filter((place: string) =>
@@ -84,7 +96,12 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
             </div>
             <div className={styles['selectCitySection__hint-container']}>
                 {hintArray.map((item) => (
-                    <p>{item}</p>
+                    <p
+                        className={styles['selectCitySection__hint-text']}
+                        onClick={() => handleHintClick(item)}
+                    >
+                        {item}
+                    </p>
                 ))}
             </div>
         </Container>

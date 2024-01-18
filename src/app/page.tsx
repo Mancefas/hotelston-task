@@ -51,7 +51,7 @@ export default function Home() {
             )}
 
             <SelectCitySection />
-            <ForecastSection />
+            {!error && <ForecastSection />}
         </main>
     );
 }

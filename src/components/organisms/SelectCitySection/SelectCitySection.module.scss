@@ -12,4 +12,8 @@ $text-size: 0.75rem;
         font-size: $text-size;
         color: var(--input-text-color);
     }
+
+    &__hint-text:hover {
+        cursor: pointer;
+    }
 }
