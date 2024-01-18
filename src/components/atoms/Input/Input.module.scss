@@ -3,5 +3,9 @@
     width: 100%;
     max-width: 280px;
     padding: 15px 55px 15px 20px;
-    color: #A4A6B1;
+    color: #a4a6b1;
+
+    &--error {
+        color: red;
+    }
 }

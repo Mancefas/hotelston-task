@@ -7,9 +7,11 @@ import ForecastSection from '@/components/organisms/ForecastSection/ForecastSect
 import SelectCitySection from '@/components/organisms/SelectCitySection/SelectCitySection';
 
 import styles from './page.module.css';
+import { getLocations } from '@/helpers/getLocations';
 
 export default function Home() {
-    const { data, setData, error, setError } = useStore();
+    const { data, setData, error, setError, setPossiblePlaces } = useStore();
+
     useEffect(() => {
         const getData = async () => {
             try {
@@ -20,7 +22,16 @@ export default function Home() {
                 setData(null);
             }
         };
+        const getPossiblePlaces = async () => {
+            try {
+                const data = await getLocations();
+                setPossiblePlaces(data);
+            } catch (error: any) {
+                setError(error.message);
+            }
+        };
         getData();
+        getPossiblePlaces();
     }, []);
 
     return (

@@ -4,11 +4,13 @@ type ButtonProps = {
     text: string;
     secondary?: boolean;
     clickHandler: () => void;
+    disabled?: boolean;
 };
 
-const Button = ({ text, secondary, clickHandler }: ButtonProps) => {
+const Button = ({ text, secondary, clickHandler, disabled }: ButtonProps) => {
     return (
         <button
+            disabled={disabled}
             onClick={clickHandler}
             className={`${styles.button} ${
                 secondary ? styles['button--secondary'] : ''

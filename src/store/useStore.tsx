@@ -10,6 +10,8 @@ interface storeTypes {
     setError: (error: string) => void;
     place: string;
     setPlace: (place: string) => void;
+    possiblePlaces: any;
+    setPossiblePlaces: (places: any) => void;
 }
 
 export const useStore = create<storeTypes>()((set) => ({
@@ -21,4 +23,6 @@ export const useStore = create<storeTypes>()((set) => ({
     setError: (error) => set({ error }),
     place: '',
     setPlace: (place) => set({ place }),
+    possiblePlaces: [],
+    setPossiblePlaces: (places) => set({ possiblePlaces: places }),
 }));
