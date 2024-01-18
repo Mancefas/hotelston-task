@@ -3,9 +3,9 @@
     width: 100%;
     max-width: 280px;
     padding: 15px 55px 15px 20px;
-    color: #a4a6b1;
+    color: var(--input-text-color);
 
     &--error {
-        color: red;
+        color: var(--text-error-color);
     }
 }

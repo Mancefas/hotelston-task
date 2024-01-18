@@ -1,3 +1,5 @@
+$text-size: 0.75rem;
+
 .selectCitySection {
     &__inner-container {
         display: flex;
@@ -5,7 +7,9 @@
     }
 
     &__hint-container {
-        min-height: 40px;
+        min-height: calc(2 * $text-size + 0.5rem);
         padding: 0 0 0 5px;
+        font-size: $text-size;
+        color: var(--input-text-color);
     }
 }

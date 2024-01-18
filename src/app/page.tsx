@@ -1,13 +1,15 @@
 'use client';
 
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useStore } from '@/store/useStore';
 import { getLongForecast } from '@/helpers/getLongForecast';
 import ForecastSection from '@/components/organisms/ForecastSection/ForecastSection';
 import SelectCitySection from '@/components/organisms/SelectCitySection/SelectCitySection';
 
-import styles from './page.module.css';
+import styles from './page.module.scss';
 import { getLocations } from '@/helpers/getLocations';
+
+// const ForecastSection = lazy(() => import('@/components/organisms/ForecastSection/ForecastSection'));
 
 export default function Home() {
     const { data, setData, error, setError, setPossiblePlaces } = useStore();
@@ -36,7 +38,6 @@ export default function Home() {
 
     return (
         <main className={styles.main}>
-            <SelectCitySection />
             {error && (
                 <p
                     style={{
@@ -48,7 +49,9 @@ export default function Home() {
                     {error}
                 </p>
             )}
-            {data && <ForecastSection data={data} />}
+
+            <SelectCitySection />
+            <ForecastSection data={data} />
         </main>
     );
 }
