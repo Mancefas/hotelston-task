@@ -6,6 +6,7 @@ type InputProps = {
     value: string;
     changeValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
     error?: boolean;
+    keydownHandler?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 };
 
 const Input = ({
@@ -14,6 +15,7 @@ const Input = ({
     value,
     changeValue,
     error,
+    keydownHandler,
 }: InputProps) => {
     return (
         <input
@@ -22,6 +24,7 @@ const Input = ({
             type={type}
             value={value}
             onChange={changeValue}
+            onKeyDown={keydownHandler}
         />
     );
 };

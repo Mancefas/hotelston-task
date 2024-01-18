@@ -53,6 +53,12 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
         setPlace(value);
     };
 
+    const enterKeyPressHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter' && buttonDisabled === false) {
+            getData();
+        }
+    };
+
     useEffect(() => {
         if (place.length === 0) {
             setButtonDisabled(true);
@@ -68,6 +74,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
                     value={place}
                     changeValue={inputHandler}
                     error={inputError}
+                    keydownHandler={enterKeyPressHandler}
                 />
                 <Button
                     text="search"
