@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useStore } from '@/store/useStore';
 import { getLongForecast } from '@/helpers/getLongForecast';
 import ForecastSection from '@/components/organisms/ForecastSection/ForecastSection';
@@ -51,7 +51,7 @@ export default function Home() {
             )}
 
             <SelectCitySection />
-            <ForecastSection data={data} />
+            <ForecastSection />
         </main>
     );
 }

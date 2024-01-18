@@ -18,6 +18,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
     const [hintArray, setHintArray] = useState([]);
 
     const getData = async () => {
+        setPlace('');
         try {
             const data = await getLongForecast(place);
             setData(data);
