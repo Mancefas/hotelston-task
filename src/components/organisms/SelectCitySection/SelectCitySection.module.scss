@@ -1,0 +1,11 @@
+.selectCitySection {
+    &__inner-container {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__hint-container {
+        min-height: 40px;
+        padding: 0 0 0 5px;
+    }
+}
