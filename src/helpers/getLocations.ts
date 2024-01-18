@@ -8,6 +8,7 @@ export async function getLocations() {
             // This will activate the closest `error.js` Error Boundary
             throw new Error('Failed to fetch data');
         }
-
-        return res.json();
+        const data = await res.json();
+        const dataOnlyPlaceCode = data.map((item: any) => item.code).filter((item: string[]) => !item.includes('-'));
+        return dataOnlyPlaceCode;
 }

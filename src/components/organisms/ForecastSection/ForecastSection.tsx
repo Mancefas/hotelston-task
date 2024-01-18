@@ -1,15 +1,22 @@
 import dayjs from 'dayjs';
-import { IconWind } from '@tabler/icons-react';
+import { useStore } from '@/store/useStore';
 import ForecastCard from '@/components/molecules/ForecastCard/ForecastCard';
-import { WeatherForecast } from '@/types/types';
+import Loading from '@/components/atoms/Loading/Loading';
 
 import styles from './ForecastSection.module.scss';
 
-type ForecastSectionProps = {
-    data: WeatherForecast;
-};
+type ForecastSectionProps = {};
 
-const ForecastSection = ({ data }: ForecastSectionProps) => {
+const ForecastSection = ({}: ForecastSectionProps) => {
+    const { data } = useStore();
+
+    if (!data)
+        return (
+            <div className={styles['forecastSection__container']}>
+                <Loading />
+            </div>
+        );
+
     const { place, forecastCreationTimeUtc, forecastTimestamps } = data;
     const hours = dayjs(forecastCreationTimeUtc).format('HH:MM');
     const dayMonth = dayjs(forecastCreationTimeUtc).format('dddd MMM DD');
@@ -37,7 +44,10 @@ const ForecastSection = ({ data }: ForecastSectionProps) => {
                     }
                 >
                     {fourHrsForecast.map((item) => (
-                        <ForecastCard weatherItem={item} />
+                        <ForecastCard
+                            key={item.forecastTimeUtc}
+                            weatherItem={item}
+                        />
                     ))}
                 </div>
             </div>

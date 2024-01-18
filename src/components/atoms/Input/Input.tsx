@@ -1,13 +1,31 @@
-import style from './Input.module.css';
+import style from './Input.module.scss';
 
 type InputProps = {
     placeholder: string;
     type: string;
+    value: string;
+    changeValue: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    error?: boolean;
+    keydownHandler?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 };
 
-const Input = ({ placeholder, type }: InputProps) => {
+const Input = ({
+    placeholder,
+    type,
+    value,
+    changeValue,
+    error,
+    keydownHandler,
+}: InputProps) => {
     return (
-        <input className={style.input} placeholder={placeholder} type={type} />
+        <input
+            className={`${style.input} ${error && style['input--error']}`}
+            placeholder={placeholder}
+            type={type}
+            value={value}
+            onChange={changeValue}
+            onKeyDown={keydownHandler}
+        />
     );
 };
 

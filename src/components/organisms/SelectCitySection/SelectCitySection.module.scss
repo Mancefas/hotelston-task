@@ -1,0 +1,19 @@
+$text-size: 0.75rem;
+
+.selectCitySection {
+    &__inner-container {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__hint-container {
+        min-height: calc(2 * $text-size + 0.5rem);
+        padding: 0 0 0 5px;
+        font-size: $text-size;
+        color: var(--input-text-color);
+    }
+
+    &__hint-text:hover {
+        cursor: pointer;
+    }
+}

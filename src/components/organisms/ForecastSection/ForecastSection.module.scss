@@ -5,7 +5,10 @@
         box-shadow: var(--shadow);
         justify-content: space-between;
         max-width: 75%;
+        min-width: 547px;
         width: fit-content;
+        min-height: 299px;
+        height: fit-content;
         margin: auto;
         padding: 2rem;
         @media (max-width: 768px) {
