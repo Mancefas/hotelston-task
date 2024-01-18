@@ -36,7 +36,10 @@ const ForecastSection = ({ data }: ForecastSectionProps) => {
                     }
                 >
                     {fourHrsForecast.map((item) => (
-                        <ForecastCard weatherItem={item} />
+                        <ForecastCard
+                            key={item.forecastTimeUtc}
+                            weatherItem={item}
+                        />
                     ))}
                 </div>
             </div>
