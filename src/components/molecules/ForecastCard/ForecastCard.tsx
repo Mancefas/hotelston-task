@@ -3,6 +3,7 @@ import { WeatherForecastItem } from '@/types/types';
 
 import styles from './ForecastCard.module.scss';
 import WeatherIcon from '@/components/atoms/WeatherIcon/WeatherIcon';
+import dayjs from 'dayjs';
 
 type ForecastCardProps = {
     weatherItem: WeatherForecastItem;
@@ -16,10 +17,20 @@ const ForecastCard = ({ weatherItem }: ForecastCardProps) => {
         windSpeed,
         conditionCode,
     } = weatherItem;
+    const hours = dayjs(forecastTimeUtc).format('HH:mm');
+
+    const cardColorClass =
+        airTemperature < 0
+            ? styles.forecastCard__container_blue
+            : airTemperature >= 0 && airTemperature < 10
+            ? styles.forecastCard__container_green
+            : airTemperature >= 10 && airTemperature < 30
+            ? styles.forecastCard__container_gold
+            : styles.forecastCard__container_red;
 
     return (
-        <div className={styles.forecastCard__container}>
-            <p>{forecastTimeUtc.slice(11)}</p>
+        <div className={`${styles.forecastCard__container} ${cardColorClass}`}>
+            <p>{hours}</p>
             <WeatherIcon condition={conditionCode} />
             <p>{airTemperature}°C</p>
             <p>feels like</p>

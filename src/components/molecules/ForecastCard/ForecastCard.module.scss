@@ -9,6 +9,17 @@
         padding: 0.5rem;
         width: fit-content;
         margin: auto;
-        background-color: #fff;
+        &_blue {
+            background-color: var(--weather-blue);
+        }
+        &_green {
+            background-color: var(-- --weather-green);
+        }
+        &_gold {
+            background-color: var(--weather-gold);
+        }
+        &_red {
+            background-color: var(--weather-red);
+        }
     }
 }
