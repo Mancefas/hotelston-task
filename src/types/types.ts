@@ -11,3 +11,22 @@ export type WeatherForecastItem = {
     totalPrecipitation: number;
     conditionCode: string;
 };
+
+export type ForecastPlace = {
+    code: string;
+    name: string;
+    administrativeDivision: string;
+    country: string;
+    countryCode: string;
+    coordinates: {
+        latitude: number;
+        longitude: number;
+    };
+}
+
+export type WeatherForecast = {
+    forecastCreationTimeUtc: string;
+    forecastTimestamps: WeatherForecastItem[];
+    forecastType: string;
+    place: ForecastPlace;
+}
