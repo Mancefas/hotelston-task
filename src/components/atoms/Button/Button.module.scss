@@ -5,12 +5,13 @@
     padding: 1px 6px;
     border: none;
     color: #fff;
-}
-
-.buttonMain {
     background-color: var(--button-main);
-}
 
-.buttonSecondary {
-    background-color: var(--button-secondary);
+    &--secondary {
+        background-color: var(--button-secondary);
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
 }

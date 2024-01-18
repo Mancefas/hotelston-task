@@ -1,0 +1,29 @@
+.forecastCard {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        padding: 0.5rem;
+        width: fit-content;
+        margin: auto;
+
+        &--blue {
+            background-color: var(--weather-blue);
+        }
+        &--green {
+            background-color: var(-- --weather-green);
+        }
+        &--gold {
+            background-color: var(--weather-gold);
+        }
+        &--red {
+            background-color: var(--weather-red);
+        }
+    }
+    &__text {
+        font-size: 0.75rem;
+    }
+}
