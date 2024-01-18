@@ -14,4 +14,7 @@
     &:hover {
         cursor: pointer;
     }
+    &:active {
+        transform: scale(0.97);
+    }
 }

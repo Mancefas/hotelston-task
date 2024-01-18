@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-import { IconWind } from '@tabler/icons-react';
 import ForecastCard from '@/components/molecules/ForecastCard/ForecastCard';
 import { WeatherForecast } from '@/types/types';
 

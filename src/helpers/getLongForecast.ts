@@ -6,7 +6,7 @@ export async function getLongForecast( place : string) {
 
 if (!res.ok) {
     // can be done with CSS using capitalize, but this is in server and it does not add css to it
-    throw new Error(`Failed to fetch long term forecast for ${place[0].toUpperCase() + place.slice(1)} `);
+    throw new Error(`Failed to fetch forecast for ${place[0].toUpperCase() + place.slice(1)} `);
 }
 
 return res.json();
