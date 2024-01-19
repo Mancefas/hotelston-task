@@ -48,12 +48,13 @@ describe('ForecastSection  + and - buttons', () => {
         });
     });
 
-    it('when user presses - on keyboard it adds more hourly forecasts', async () => {
+    it('when - button is pressed it removes hourly forecasts', async () => {
         render(<ForecastSection data={object} />);
 
+        const minusButton = screen.getByTestId('minus-btn');
         const initialCards = screen.getAllByTestId('forecast-card').length;
 
-        userEvent.keyboard('{-}');
+        userEvent.click(minusButton);
 
         await waitFor(() => {
             const newCards = screen.getAllByTestId('forecast-card').length;
@@ -62,13 +63,12 @@ describe('ForecastSection  + and - buttons', () => {
         });
     });
 
-    it('when - button is pressed it removes hourly forecasts', async () => {
+    it('when user presses - on keyboard it removes hourly forecasts', async () => {
         render(<ForecastSection data={object} />);
 
-        const minusButton = screen.getByTestId('minus-btn');
         const initialCards = screen.getAllByTestId('forecast-card').length;
 
-        userEvent.click(minusButton);
+        userEvent.keyboard('{-}');
 
         await waitFor(() => {
             const newCards = screen.getAllByTestId('forecast-card').length;
