@@ -1,7 +1,8 @@
 :root {
   --button-main: #434752;
   --button-secondary: #63C55E;
-  --background-main: #FFFFFF;
+  --background-main: #f9f9f9;
+  --background-container: #FFFFFF;
   --shadow: rgba(0, 0, 0, 0.1) 0px 20px 80px -10px;
   --input-text-color: #a4a6b1;
   --text-error-color: #ff0000;

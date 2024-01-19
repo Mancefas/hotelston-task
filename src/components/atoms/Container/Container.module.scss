@@ -4,6 +4,7 @@
     max-width: 80%;
     width: fit-content;
     margin: auto;
+    background-color: var(--background-container);
     @media (max-width: 768px) {
         max-width: 90%;
     }
