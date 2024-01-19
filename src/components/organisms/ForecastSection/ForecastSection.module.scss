@@ -3,21 +3,26 @@
         display: flex;
         gap: 1rem;
         box-shadow: var(--shadow);
+        background-color: var(--background-container);
         justify-content: space-between;
-        max-width: 75%;
+        max-width: 90%;
         min-width: 547px;
         width: fit-content;
         min-height: 299px;
         height: fit-content;
         margin: auto;
         padding: 2rem;
+
         @media (max-width: 768px) {
             flex-direction: column;
+            min-width: 90%;
+            min-height: unset;
         }
     }
 
     &__place-container {
         display: flex;
+
         flex-direction: column;
         justify-content: space-around;
         align-items: center;

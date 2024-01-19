@@ -8,11 +8,12 @@ import SelectCitySection from '@/components/organisms/SelectCitySection/SelectCi
 
 import styles from './page.module.scss';
 import { getLocations } from '@/helpers/getLocations';
+import LandingImg from '@/components/molecules/LandingImg/LandingImg';
 
 // const ForecastSection = lazy(() => import('@/components/organisms/ForecastSection/ForecastSection'));
 
 export default function Home() {
-    const { data, setData, error, setError, setPossiblePlaces } = useStore();
+    const { setData, error, setError, setPossiblePlaces } = useStore();
 
     useEffect(() => {
         const getData = async () => {
@@ -49,8 +50,11 @@ export default function Home() {
                     {error}
                 </p>
             )}
-
-            <SelectCitySection />
+            <LandingImg>
+                <div className={styles['city-section__container']}>
+                    <SelectCitySection />
+                </div>
+            </LandingImg>
             {!error && <ForecastSection />}
         </main>
     );
