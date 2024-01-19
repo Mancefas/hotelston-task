@@ -21,7 +21,7 @@ const ForecastSection = ({ data }: ForecastSectionProps) => {
             </div>
         );
 
-    const [forecastTime, setForecastTime] = useState<number>(5);
+    const [forecastTime, setForecastTime] = useState<number>(4);
 
     const { place, forecastCreationTimeUtc, forecastTimestamps } = data;
     const hours = dayjs(forecastCreationTimeUtc).format('HH:MM');
@@ -60,19 +60,24 @@ const ForecastSection = ({ data }: ForecastSectionProps) => {
 
             <div className={styles['forecastSection__timestamps-container']}>
                 <div className={styles['forecastSection__hours-container']}>
-                    <IconClockMinus
-                        color="red"
-                        className={styles['forecastSection__hours-change-icon']}
+                    <button
+                        disabled={forecastTime < 2}
+                        data-testid="minus-btn"
                         onClick={() => setForecastTime((prev) => prev - 1)}
-                    />
+                        className={styles['forecastSection__hours-change-btn']}
+                    >
+                        <IconClockMinus color="red" />
+                    </button>
                     <p className={styles['forecastSection__timestamps-title']}>
-                        {forecastTime} hours forecast
+                        {forecastTime} hour{forecastTime !== 1 && 's'} forecast
                     </p>
-                    <IconClockPlus
-                        color="green"
-                        className={styles['forecastSection__hours-change-icon']}
+                    <button
+                        data-testid="plus-btn"
                         onClick={() => setForecastTime((prev) => prev + 1)}
-                    />
+                        className={styles['forecastSection__hours-change-btn']}
+                    >
+                        <IconClockPlus color="green" />
+                    </button>
                 </div>
 
                 <div

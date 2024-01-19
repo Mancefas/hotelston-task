@@ -30,7 +30,10 @@ const ForecastCard = ({ weatherItem }: ForecastCardProps) => {
             : styles['forecastCard__container--red'];
 
     return (
-        <div className={`${styles.forecastCard__container} ${cardColorClass}`}>
+        <div
+            className={`${styles.forecastCard__container} ${cardColorClass}`}
+            data-testid="forecast-card"
+        >
             <p>{hours}</p>
             <WeatherIcon condition={conditionCode as WeatherCondition} />
             <p>{airTemperature}°C</p>
