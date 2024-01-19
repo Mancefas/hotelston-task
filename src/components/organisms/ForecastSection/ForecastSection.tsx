@@ -2,18 +2,31 @@
 
 import { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
-import { useStore } from '@/store/useStore';
 import { IconClockPlus, IconClockMinus } from '@tabler/icons-react';
 import ForecastCard from '@/components/molecules/ForecastCard/ForecastCard';
 import Loading from '@/components/atoms/Loading/Loading';
 
 import styles from './ForecastSection.module.scss';
+import { WeatherForecast } from '@/types/types';
 
-type ForecastSectionProps = {};
+type ForecastSectionProps = {
+    data: WeatherForecast | null;
+};
 
-const ForecastSection = ({}: ForecastSectionProps) => {
-    const { data } = useStore();
+const ForecastSection = ({ data }: ForecastSectionProps) => {
+    if (!data)
+        return (
+            <div className={styles['forecastSection__container']}>
+                <Loading />
+            </div>
+        );
+
     const [forecastTime, setForecastTime] = useState<number>(5);
+
+    const { place, forecastCreationTimeUtc, forecastTimestamps } = data;
+    const hours = dayjs(forecastCreationTimeUtc).format('HH:MM');
+    const dayMonth = dayjs(forecastCreationTimeUtc).format('dddd MMM DD');
+    const fourHrsForecast = forecastTimestamps.slice(0, forecastTime);
 
     // Add event listener to add or remove hours when pressing + or - on keyboard
     useEffect(() => {
@@ -32,18 +45,6 @@ const ForecastSection = ({}: ForecastSectionProps) => {
             document.removeEventListener('keydown', handleKeyDown);
         };
     }, []);
-
-    if (!data)
-        return (
-            <div className={styles['forecastSection__container']}>
-                <Loading />
-            </div>
-        );
-
-    const { place, forecastCreationTimeUtc, forecastTimestamps } = data;
-    const hours = dayjs(forecastCreationTimeUtc).format('HH:MM');
-    const dayMonth = dayjs(forecastCreationTimeUtc).format('dddd MMM DD');
-    const fourHrsForecast = forecastTimestamps.slice(0, forecastTime);
 
     return (
         <div className={styles['forecastSection__container']}>

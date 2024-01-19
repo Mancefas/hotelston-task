@@ -13,7 +13,7 @@ import LandingImg from '@/components/molecules/LandingImg/LandingImg';
 // const ForecastSection = lazy(() => import('@/components/organisms/ForecastSection/ForecastSection'));
 
 export default function Home() {
-    const { setData, error, setError, setPossiblePlaces } = useStore();
+    const { data, setData, error, setError, setPossiblePlaces } = useStore();
 
     useEffect(() => {
         const getData = async () => {
@@ -55,7 +55,7 @@ export default function Home() {
                     <SelectCitySection />
                 </div>
             </LandingImg>
-            {!error && <ForecastSection />}
+            {!error && <ForecastSection data={data} />}
         </main>
     );
 }
