@@ -35,6 +35,7 @@ export default function Home() {
         };
         getData();
         getPossiblePlaces();
+        // eslint-disable-next-line
     }, []);
 
     return (

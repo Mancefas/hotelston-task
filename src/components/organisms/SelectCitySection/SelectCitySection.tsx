@@ -97,6 +97,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
             <div className={styles['selectCitySection__hint-container']}>
                 {hintArray.map((item) => (
                     <p
+                        key={item}
                         className={styles['selectCitySection__hint-text']}
                         onClick={() => handleHintClick(item)}
                     >
