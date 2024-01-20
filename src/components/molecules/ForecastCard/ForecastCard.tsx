@@ -1,7 +1,7 @@
 import { IconWind } from '@tabler/icons-react';
 import dayjs from 'dayjs';
 import { WeatherForecastItem, WeatherCondition } from '@/types/types';
-import WeatherIcon from '@/components/atoms/WeatherIcon/WeatherIcon';
+import WeatherIcon from '@/components/atoms/WeatherIcon/';
 
 import styles from './ForecastCard.module.scss';
 

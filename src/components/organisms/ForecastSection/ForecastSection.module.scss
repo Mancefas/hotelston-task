@@ -51,19 +51,6 @@
         gap: 1rem;
     }
 
-    &__hours-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
-
-    &__hours-change-btn {
-        cursor: pointer;
-        background-color: unset;
-        border: none;
-    }
-
     &__timestamps-cards-container {
         display: flex;
         align-items: center;

@@ -3,12 +3,12 @@
 import { useEffect } from 'react';
 import { useStore } from '@/store/useStore';
 import { getLongForecast } from '@/helpers/getLongForecast';
-import ForecastSection from '@/components/organisms/ForecastSection/ForecastSection';
-import SelectCitySection from '@/components/organisms/SelectCitySection/SelectCitySection';
+import ForecastSection from '@/components/organisms/ForecastSection/';
+import SelectCitySection from '@/components/organisms/SelectCitySection/';
 
 import styles from './page.module.scss';
 import { getLocations } from '@/helpers/getLocations';
-import LandingImg from '@/components/molecules/LandingImg/LandingImg';
+import LandingImg from '@/components/molecules/LandingImg/';
 
 // const ForecastSection = lazy(() => import('@/components/organisms/ForecastSection/ForecastSection'));
 

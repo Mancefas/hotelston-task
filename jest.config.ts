@@ -5,6 +5,7 @@
 
 import type {Config} from 'jest';
 import nextJest from 'next/jest.js';
+import type { JestConfigWithTsJest } from 'ts-jest'
 
 
 const createJestConfig = nextJest({
@@ -106,7 +107,7 @@ const config: Config = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -141,7 +142,7 @@ const config: Config = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ['./src/setup-jest.ts'],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
