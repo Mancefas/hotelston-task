@@ -23,6 +23,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
     const getData = async () => {
         setPlace('');
         setInputValue('');
+        setData(null);
         try {
             const data = await getLongForecast(place);
             setData(data);
