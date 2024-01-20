@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useStore } from '@/store/useStore';
 import { getLongForecast } from '@/helpers/getLongForecast';
-import ForecastSection from '@/components/organisms/ForecastSection/ForecastSection';
+import ForecastSection from '@/components/organisms/ForecastSection/';
 import SelectCitySection from '@/components/organisms/SelectCitySection/SelectCitySection';
 
 import styles from './page.module.scss';

@@ -12,6 +12,9 @@ interface storeTypes {
     setPlace: (place: string) => void;
     possiblePlaces: string[];
     setPossiblePlaces: (places: any) => void;
+    showingForecastTimes: number;
+    addShowingForecastTimes: () => void;
+    subtractShowingForecastTimes: () => void;
 }
 
 export const useStore = create<storeTypes>()((set) => ({
@@ -25,4 +28,16 @@ export const useStore = create<storeTypes>()((set) => ({
     setPlace: (place) => set({ place }),
     possiblePlaces: [],
     setPossiblePlaces: (places) => set({ possiblePlaces: places }),
+    showingForecastTimes: 4,
+    addShowingForecastTimes: () =>
+        set((state) => ({
+            showingForecastTimes: state.showingForecastTimes + 1,
+        })),
+    subtractShowingForecastTimes: () =>
+        set((state) => ({
+            showingForecastTimes:
+                state.showingForecastTimes > 1
+                    ? state.showingForecastTimes - 1
+                    : state.showingForecastTimes,
+        })),
 }));
