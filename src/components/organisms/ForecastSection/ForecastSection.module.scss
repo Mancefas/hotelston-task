@@ -58,8 +58,10 @@
         gap: 10px;
     }
 
-    &__hours-change-icon {
+    &__hours-change-btn {
         cursor: pointer;
+        background-color: unset;
+        border: none;
     }
 
     &__timestamps-cards-container {

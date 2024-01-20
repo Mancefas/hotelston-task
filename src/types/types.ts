@@ -30,3 +30,25 @@ export type WeatherForecast = {
     forecastType: string;
     place: ForecastPlace;
 }
+
+export type WeatherCondition =
+    | 'clear'
+    | 'sunny'
+    | 'partly-cloudy'
+    | 'cloudy'
+    | 'cloudy-with-sunny-intervals'
+    | 'thunder'
+    | 'isolated-thunderstorms'
+    | 'thunderstorms'
+    | 'heavy-rain-with-thunderstorms'
+    | 'light-rain'
+    | 'rain'
+    | 'heavy-rain'
+    | 'freezing-rain'
+    | 'hail'
+    | 'light-sleet'
+    | 'sleet'
+    | 'light-snow'
+    | 'snow'
+    | 'heavy-snow'
+    | 'fog';

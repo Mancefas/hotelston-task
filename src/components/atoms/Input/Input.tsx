@@ -19,7 +19,7 @@ const Input = ({
 }: InputProps) => {
     return (
         <input
-            className={`${style.input} ${error && style['input--error']}`}
+            className={`${style.input} ${error ? style['input--error'] : ''}`}
             placeholder={placeholder}
             type={type}
             value={value}

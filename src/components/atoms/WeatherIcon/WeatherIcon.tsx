@@ -8,9 +8,14 @@ import {
     IconCloudSnow,
     IconCloudFog,
 } from '@tabler/icons-react';
+import { WeatherCondition } from '@/types/types';
 import styles from './WeatherIcon.module.scss';
 
-const WeatherIcon = ({ condition }: { condition: string }) => {
+type WeatherIconProps = {
+    condition: WeatherCondition;
+};
+
+const WeatherIcon = ({ condition }: WeatherIconProps) => {
     if (condition === 'clear' || condition === 'sunny') {
         return <IconSun className={styles.sunIcon} />;
     } else if (condition === 'partly-cloudy' || condition === 'cloudy') {
@@ -32,11 +37,7 @@ const WeatherIcon = ({ condition }: { condition: string }) => {
         condition === 'hail'
     ) {
         return <IconCloudRain />;
-    } else if (
-        condition === 'light-sleet' ||
-        condition === 'sleet' ||
-        condition === ''
-    ) {
+    } else if (condition === 'light-sleet' || condition === 'sleet') {
         return <IconCloudSnow />;
     } else if (
         condition === 'light-snow' ||

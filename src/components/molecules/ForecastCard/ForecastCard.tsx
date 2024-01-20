@@ -1,9 +1,9 @@
 import { IconWind } from '@tabler/icons-react';
-import { WeatherForecastItem } from '@/types/types';
+import dayjs from 'dayjs';
+import { WeatherForecastItem, WeatherCondition } from '@/types/types';
+import WeatherIcon from '@/components/atoms/WeatherIcon/WeatherIcon';
 
 import styles from './ForecastCard.module.scss';
-import WeatherIcon from '@/components/atoms/WeatherIcon/WeatherIcon';
-import dayjs from 'dayjs';
 
 type ForecastCardProps = {
     weatherItem: WeatherForecastItem;
@@ -30,9 +30,12 @@ const ForecastCard = ({ weatherItem }: ForecastCardProps) => {
             : styles['forecastCard__container--red'];
 
     return (
-        <div className={`${styles.forecastCard__container} ${cardColorClass}`}>
+        <div
+            className={`${styles.forecastCard__container} ${cardColorClass}`}
+            data-testid="forecast-card"
+        >
             <p>{hours}</p>
-            <WeatherIcon condition={conditionCode} />
+            <WeatherIcon condition={conditionCode as WeatherCondition} />
             <p>{airTemperature}°C</p>
             <p className={styles.forecastCard__text}>feels like</p>
             <p>{feelsLikeTemperature}°C</p>

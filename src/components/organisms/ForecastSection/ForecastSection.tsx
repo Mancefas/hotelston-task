@@ -2,18 +2,31 @@
 
 import { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
-import { useStore } from '@/store/useStore';
 import { IconClockPlus, IconClockMinus } from '@tabler/icons-react';
 import ForecastCard from '@/components/molecules/ForecastCard/ForecastCard';
 import Loading from '@/components/atoms/Loading/Loading';
 
 import styles from './ForecastSection.module.scss';
+import { WeatherForecast } from '@/types/types';
 
-type ForecastSectionProps = {};
+type ForecastSectionProps = {
+    data: WeatherForecast | null;
+};
 
-const ForecastSection = ({}: ForecastSectionProps) => {
-    const { data } = useStore();
-    const [forecastTime, setForecastTime] = useState<number>(5);
+const ForecastSection = ({ data }: ForecastSectionProps) => {
+    if (!data)
+        return (
+            <div className={styles['forecastSection__container']}>
+                <Loading />
+            </div>
+        );
+
+    const [forecastTime, setForecastTime] = useState<number>(4);
+
+    const { place, forecastCreationTimeUtc, forecastTimestamps } = data;
+    const hours = dayjs(forecastCreationTimeUtc).format('HH:MM');
+    const dayMonth = dayjs(forecastCreationTimeUtc).format('dddd MMM DD');
+    const fourHrsForecast = forecastTimestamps.slice(0, forecastTime);
 
     // Add event listener to add or remove hours when pressing + or - on keyboard
     useEffect(() => {
@@ -33,18 +46,6 @@ const ForecastSection = ({}: ForecastSectionProps) => {
         };
     }, []);
 
-    if (!data)
-        return (
-            <div className={styles['forecastSection__container']}>
-                <Loading />
-            </div>
-        );
-
-    const { place, forecastCreationTimeUtc, forecastTimestamps } = data;
-    const hours = dayjs(forecastCreationTimeUtc).format('HH:MM');
-    const dayMonth = dayjs(forecastCreationTimeUtc).format('dddd MMM DD');
-    const fourHrsForecast = forecastTimestamps.slice(0, forecastTime);
-
     return (
         <div className={styles['forecastSection__container']}>
             <div className={styles['forecastSection__place-container']}>
@@ -59,19 +60,24 @@ const ForecastSection = ({}: ForecastSectionProps) => {
 
             <div className={styles['forecastSection__timestamps-container']}>
                 <div className={styles['forecastSection__hours-container']}>
-                    <IconClockMinus
-                        color="red"
-                        className={styles['forecastSection__hours-change-icon']}
+                    <button
+                        disabled={forecastTime < 2}
+                        data-testid="minus-btn"
                         onClick={() => setForecastTime((prev) => prev - 1)}
-                    />
+                        className={styles['forecastSection__hours-change-btn']}
+                    >
+                        <IconClockMinus color="red" />
+                    </button>
                     <p className={styles['forecastSection__timestamps-title']}>
-                        {forecastTime} hours forecast
+                        {forecastTime} hour{forecastTime !== 1 && 's'} forecast
                     </p>
-                    <IconClockPlus
-                        color="green"
-                        className={styles['forecastSection__hours-change-icon']}
+                    <button
+                        data-testid="plus-btn"
                         onClick={() => setForecastTime((prev) => prev + 1)}
-                    />
+                        className={styles['forecastSection__hours-change-btn']}
+                    >
+                        <IconClockPlus color="green" />
+                    </button>
                 </div>
 
                 <div
