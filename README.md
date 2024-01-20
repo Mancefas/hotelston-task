@@ -6,6 +6,18 @@ The project can be seen live - [https://hotelston-task.vercel.app/](https://hote
 
 or
 
+Install dependecies
+
+```bash
+npm i
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
 Run in the development server:
 
 ```bash
