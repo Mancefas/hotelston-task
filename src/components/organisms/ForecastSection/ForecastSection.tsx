@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
 import { useStore } from '@/store/useStore';
 
-import ForecastCard from '@/components/molecules/ForecastCard/ForecastCard';
-import Loading from '@/components/atoms/Loading/Loading';
+import ForecastCard from '@/components/molecules/ForecastCard/';
+import Loading from '@/components/atoms/Loading/';
 import ForecastTimes from '@/components/molecules/ForecastTimes';
 
 import styles from './ForecastSection.module.scss';

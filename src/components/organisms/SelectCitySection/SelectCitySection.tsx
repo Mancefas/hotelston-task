@@ -3,9 +3,9 @@
 import { useEffect, useState } from 'react';
 import { useStore } from '@/store/useStore';
 import { getLongForecast } from '@/helpers/getLongForecast';
-import Container from '@/components/atoms/Container/Container';
-import Button from '@/components/atoms/Button/Button';
-import Input from '@/components/atoms/Input/Input';
+import Container from '@/components/atoms/Container/';
+import Button from '@/components/atoms/Button/';
+import Input from '@/components/atoms/Input/';
 
 import styles from './SelectCitySection.module.scss';
 
