@@ -10,7 +10,7 @@ interface storeTypes {
     setError: (error: string) => void;
     place: string;
     setPlace: (place: string) => void;
-    possiblePlaces: any;
+    possiblePlaces: string[];
     setPossiblePlaces: (places: any) => void;
 }
 

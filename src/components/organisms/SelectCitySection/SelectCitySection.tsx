@@ -15,7 +15,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
     const { setData, place, setPlace, setError, possiblePlaces } = useStore();
     const [inputError, setInputError] = useState<boolean>(false);
     const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
-    const [hintArray, setHintArray] = useState([]);
+    const [hintArray, setHintArray] = useState<string[]>([]);
 
     const getData = async () => {
         setPlace('');
@@ -79,7 +79,10 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
 
     return (
         <Container>
-            <div className={styles['selectCitySection__inner-container']}>
+            <div
+                className={styles['selectCitySection__inner-container']}
+                data-testid="select-city-section"
+            >
                 <Input
                     type="text"
                     placeholder="Different city"
