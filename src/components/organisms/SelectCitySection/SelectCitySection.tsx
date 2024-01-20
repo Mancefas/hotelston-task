@@ -18,6 +18,8 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
     const [hintArray, setHintArray] = useState<string[]>([]);
     const [inputValue, setInputValue] = useState('');
 
+    const errorText = 'There is no city with that name';
+
     const getData = async () => {
         setPlace('');
         setInputValue('');
@@ -83,6 +85,10 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
 
     return (
         <Container>
+            <div className={styles['selectCitySection__error-text']}>
+                {inputError && <p>{errorText}</p>}
+            </div>
+
             <div
                 className={styles['selectCitySection__inner-container']}
                 data-testid="select-city-section"
@@ -101,6 +107,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
                     disabled={buttonDisabled}
                 />
             </div>
+
             <div className={styles['selectCitySection__hint-container']}>
                 {hintArray.map((item) => (
                     <p
