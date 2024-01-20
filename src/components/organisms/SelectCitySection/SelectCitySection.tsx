@@ -42,8 +42,8 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
 
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
-        const placesArray = possiblePlaces.filter((place: string) =>
-            place.includes(value)
+        const placesArray = possiblePlaces.filter((e: string) =>
+            e.includes(value)
         );
 
         if (placesArray.length === 0) {
