@@ -57,5 +57,9 @@
         justify-content: center;
         gap: 1rem;
         flex-wrap: wrap;
+
+        & > :only-child {
+            width: 100%;
+        }
     }
 }
