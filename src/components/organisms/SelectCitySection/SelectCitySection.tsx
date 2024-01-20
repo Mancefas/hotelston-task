@@ -16,9 +16,11 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
     const [inputError, setInputError] = useState<boolean>(false);
     const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
     const [hintArray, setHintArray] = useState<string[]>([]);
+    const [inputValue, setInputValue] = useState('');
 
     const getData = async () => {
         setPlace('');
+        setInputValue('');
         try {
             const data = await getLongForecast(place);
             setData(data);
@@ -30,6 +32,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
 
     const handleHintClick = async (item: string) => {
         setPlace('');
+        setInputValue('');
         setHintArray([]);
         try {
             const data = await getLongForecast(item);
@@ -42,6 +45,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
 
     const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
+        setInputValue(value);
         const placesArray = possiblePlaces.filter((e: string) =>
             e.includes(value)
         );
@@ -86,7 +90,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
                 <Input
                     type="text"
                     placeholder="Different city"
-                    value={place.toLowerCase()}
+                    value={inputValue.toLowerCase()}
                     changeValue={inputHandler}
                     error={inputError}
                     keydownHandler={enterKeyPressHandler}
@@ -100,6 +104,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
             <div className={styles['selectCitySection__hint-container']}>
                 {hintArray.map((item) => (
                     <p
+                        data-testid="hint-text"
                         key={item}
                         className={styles['selectCitySection__hint-text']}
                         onClick={() => handleHintClick(item)}
