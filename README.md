@@ -6,6 +6,18 @@ The project can be seen live - [https://hotelston-task.vercel.app/](https://hote
 
 or
 
+Clone repository
+
+```bash
+git clone https://github.com/Mancefas/hotelston-task.git
+```
+
+Get to new directory
+
+```bash
+cd hotelston-task
+```
+
 Install dependecies
 
 ```bash
