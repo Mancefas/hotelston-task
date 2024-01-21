@@ -4,7 +4,17 @@
 
 The project can be seen live - [https://hotelston-task.vercel.app/](https://hotelston-task.vercel.app/)
 
-or
+**OR**
+
+Using docker 🐋
+
+```bash
+docker-compose up
+```
+
+Open http://localhost:3000 with your browser to see the result.
+
+**OR**
 
 Clone repository
 
