@@ -22,12 +22,12 @@
 
     &__place-container {
         display: flex;
-
+        height: fit-content;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
         box-shadow: var(--shadow);
-        padding: 1rem;
+        padding: 2rem 1rem;
     }
     &__place-name {
         font-size: 1.5rem;
@@ -52,11 +52,16 @@
     }
 
     &__timestamps-cards-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        // other version with flex
+        // display: flex;
+        // align-items: center;
+        // justify-content: flex-start;
+        // flex-wrap: wrap;
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
         gap: 1rem;
-        flex-wrap: wrap;
 
         & > :only-child {
             width: 100%;
