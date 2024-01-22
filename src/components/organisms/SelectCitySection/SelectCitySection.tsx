@@ -37,6 +37,7 @@ const SelectCitySection = ({}: SelectCitySectionProps) => {
         setPlace('');
         setInputValue('');
         setHintArray([]);
+        setData(null);
         try {
             const data = await getLongForecast(item);
             setData(data);
