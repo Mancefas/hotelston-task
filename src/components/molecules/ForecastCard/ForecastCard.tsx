@@ -7,9 +7,10 @@ import styles from './ForecastCard.module.scss';
 
 type ForecastCardProps = {
     weatherItem: WeatherForecastItem;
+    withDay?: boolean;
 };
 
-const ForecastCard = ({ weatherItem }: ForecastCardProps) => {
+const ForecastCard = ({ weatherItem, withDay }: ForecastCardProps) => {
     const {
         forecastTimeUtc,
         airTemperature,
@@ -19,6 +20,7 @@ const ForecastCard = ({ weatherItem }: ForecastCardProps) => {
         conditionCode,
     } = weatherItem;
     const hours = dayjs(forecastTimeUtc).format('HH:mm');
+    const day = dayjs(forecastTimeUtc).format('MMM DD');
 
     const cardColorClass =
         airTemperature < 0
@@ -34,6 +36,7 @@ const ForecastCard = ({ weatherItem }: ForecastCardProps) => {
             className={`${styles.forecastCard__container} ${cardColorClass}`}
             data-testid="forecast-card"
         >
+            {withDay && <p>{day}</p>}
             <p>{hours}</p>
             <WeatherIcon condition={conditionCode as WeatherCondition} />
             <p>{airTemperature}°C</p>

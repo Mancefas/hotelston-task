@@ -26,7 +26,13 @@ const ForecastSection = ({ data }: ForecastSectionProps) => {
     const { place, forecastCreationTimeUtc, forecastTimestamps } = data;
     const hours = dayjs(forecastCreationTimeUtc).format('HH:MM');
     const dayMonth = dayjs(forecastCreationTimeUtc).format('dddd MMM DD');
-    const fourHrsForecast = forecastTimestamps.slice(0, showingForecastTimes);
+    const hrsForecast = forecastTimestamps.slice(0, showingForecastTimes);
+
+    const dayNow = dayjs().date();
+    const lastDayInArray = dayjs(
+        hrsForecast[hrsForecast.length - 1].forecastTimeUtc
+    ).date();
+    const timeIsInNewDay = lastDayInArray > dayNow;
 
     return (
         <div className={styles['forecastSection__container']}>
@@ -48,10 +54,11 @@ const ForecastSection = ({ data }: ForecastSectionProps) => {
                         styles['forecastSection__timestamps-cards-container']
                     }
                 >
-                    {fourHrsForecast.map((item) => (
+                    {hrsForecast.map((item) => (
                         <ForecastCard
                             key={item.forecastTimeUtc}
                             weatherItem={item}
+                            withDay={timeIsInNewDay}
                         />
                     ))}
                 </div>
