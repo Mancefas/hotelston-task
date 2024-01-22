@@ -31,7 +31,10 @@ export const useStore = create<storeTypes>()((set) => ({
     showingForecastTimes: 4,
     addShowingForecastTimes: () =>
         set((state) => ({
-            showingForecastTimes: state.showingForecastTimes + 1,
+            showingForecastTimes:
+                state.showingForecastTimes < 84
+                    ? state.showingForecastTimes + 1
+                    : state.showingForecastTimes,
         })),
     subtractShowingForecastTimes: () =>
         set((state) => ({
